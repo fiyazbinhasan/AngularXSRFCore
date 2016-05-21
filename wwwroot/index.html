@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>WHB - What Happened Bank!?!?!</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <style>
+        .container, .row {
+            margin-top: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center text-danger"><strong>WHB</strong></h1>
+        <h3 class="text-center text-danger">What Happened Bank!?!?!</h3>
+        <div class="text-center"><em>"you wouldn't know what just happened"</em></div>
+        <div class="row" ng-controller="TransactionController as vm">
+            <div class="col-md-5 col-md-offset-1">
+                <div class="panel panel-success">
+                    <div class="panel-heading">My Acc. (1234)</div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="creditAccount">Account number:</label>
+                                <input type="number" class="form-control" id="creditAccount" placeholder="Acc. number" ng-model="vm.account.accountNumber">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="creditAmount">Amount (in dollars)</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="number" class="form-control" id="creditAmount" placeholder="Amount" ng-model="vm.transactionAmount">
+                                    <div class="input-group-addon">.00</div>
+                                </div>
+                            </div>
+                            <div class="well well-sm">
+                                <h4>Current Balance: {{vm.account.currentBalance}}</h4>
+                            </div>
+                            <button type="button" class="btn btn-warning" ng-click="vm.debit()">Debit</button>
+                            <button type="button" class="btn btn-success" ng-click="vm.credit()">Credit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Transactions</div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Acc. no</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="transaction in vm.transactions">
+                                    <td>{{transaction.account.accountNumber}}</td>
+                                    <td>{{transaction.transactionType}}</td>
+                                    <td>{{transaction.transactionAmount}}</td>
+                                    <td>{{transaction.account.currentBalance}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/transaction/transaction.controller.js"></script>
+    <script src="app/transaction/transaction.service.js"></script>
+</body>
+</html>
