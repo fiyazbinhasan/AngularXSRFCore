@@ -18,13 +18,9 @@
         <div class="row" ng-controller="TransactionController as vm">
             <div class="col-md-5 col-md-offset-1">
                 <div class="panel panel-success">
-                    <div class="panel-heading">My Acc. (1234)</div>
+                    <div class="panel-heading">Debit/Credit on Account 1234</div>
                     <div class="panel-body">
                         <form>
-                            <div class="form-group">
-                                <label for="creditAccount">Account number:</label>
-                                <input type="number" class="form-control" id="creditAccount" placeholder="Acc. number" ng-model="vm.account.accountNumber">
-                            </div>
                             <div class="form-group">
                                 <label class="sr-only" for="creditAmount">Amount (in dollars)</label>
                                 <div class="input-group">
@@ -32,9 +28,6 @@
                                     <input type="number" class="form-control" id="creditAmount" placeholder="Amount" ng-model="vm.transactionAmount">
                                     <div class="input-group-addon">.00</div>
                                 </div>
-                            </div>
-                            <div class="well well-sm">
-                                <h4>Current Balance: {{vm.account.currentBalance}}</h4>
                             </div>
                             <button type="button" class="btn btn-warning" ng-click="vm.debit()">Debit</button>
                             <button type="button" class="btn btn-success" ng-click="vm.credit()">Credit</button>

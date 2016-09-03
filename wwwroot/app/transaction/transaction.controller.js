@@ -13,7 +13,6 @@
 
         vm.transactions = [];
         vm.transactionAmount = undefined;
-        vm.account = { accountNumber: undefined, currentBalance: 1000 };
 
         vm.getTransactions = getTransactions;
         vm.debit = debit;
@@ -26,7 +25,6 @@
         }
 
         function debit() {
-            vm.account.currentBalance = vm.account.currentBalance - vm.transactionAmount;
             var transaction = {
                 account: vm.account,
                 transactionAmount: vm.transactionAmount,
@@ -39,7 +37,6 @@
         }
 
         function credit() {
-            vm.account.currentBalance = vm.account.currentBalance + vm.transactionAmount;
             var transaction = {
                 account: vm.account,
                 transactionAmount: vm.transactionAmount,

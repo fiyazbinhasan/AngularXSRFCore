@@ -19,20 +19,19 @@ namespace Angular.Asp.Net.Core.XSRF.RC2.Repository
 
         public void AddTransaction(Transaction transaction)
         {
-            if (_account.AccountNumber == transaction.Account.AccountNumber)
+            transaction.Account = _account;
+
+            if (transaction.TransactionType.Equals("DEBIT"))
             {
-                if (transaction.TransactionType.Equals("DEBIT"))
-                {
-                    _account.CurrentBalance = _account.CurrentBalance - transaction.TransactionAmount;
+                transaction.Account.CurrentBalance = transaction.Account.CurrentBalance - transaction.TransactionAmount;
 
-                }
-                else
-                {
-                    _account.CurrentBalance = _account.CurrentBalance + transaction.TransactionAmount;
-                }
-
-                _transactions.Add(transaction);
             }
+            else
+            {
+                transaction.Account.CurrentBalance = transaction.Account.CurrentBalance + transaction.TransactionAmount;
+            }
+
+            _transactions.Add(transaction);
         }
     }
 }
