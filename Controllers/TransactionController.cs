@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Angular.Asp.Net.Core.XSRF.RC2.Models;
 using Angular.Asp.Net.Core.XSRF.RC2.Repository;
 using Microsoft.AspNetCore.Mvc;

@@ -26,7 +26,6 @@
 
         function debit() {
             var transaction = {
-                account: vm.account,
                 transactionAmount: vm.transactionAmount,
                 transactionType: 'DEBIT'
             }
@@ -38,7 +37,6 @@
 
         function credit() {
             var transaction = {
-                account: vm.account,
                 transactionAmount: vm.transactionAmount,
                 transactionType: 'CREDIT'
             }
